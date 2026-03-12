@@ -223,6 +223,56 @@
   font-weight: 700;
 }
 
+.credentialsPanel {
+  background: #eae7e1;
+}
+
+.credentialsBox {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  border: 2px solid #111111;
+  background: #f4f1ec;
+  padding: 1rem;
+  box-shadow: 10px 10px 0 #111111;
+}
+
+.credentialsBox h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.4rem, 3.8vw, 2.3rem);
+  letter-spacing: -0.03em;
+}
+
+.credentialsGrid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.credentialsCard {
+  border: 2px solid #111111;
+  background: #f4f1ec;
+  padding: 0.85rem;
+}
+
+.credentialsCard h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.credentialsCard p {
+  margin: 0;
+}
+
+.credentialsCard ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.credentialsCard li + li {
+  margin-top: 0.4rem;
+}
+
 .contactPanel {
   background: #111111;
   color: #f4f1ec;
@@ -302,5 +352,9 @@
 
   .projectContent {
     padding: 1.25rem;
+  }
+
+  .credentialsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

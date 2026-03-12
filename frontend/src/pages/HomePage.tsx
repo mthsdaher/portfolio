@@ -50,6 +50,9 @@ const projects: Project[] = [
   },
 ]
 
+const RESUME_URL =
+  'https://drive.google.com/uc?export=download&id=PASTE_YOUR_FILE_ID'
+
 function ProjectSection({ project }: { project: Project }) {
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.3 })
 
@@ -122,6 +125,15 @@ export function HomePage() {
             <a className={`${styles.button} ${styles.buttonGhost}`} href="#contact">
               Contact Me
             </a>
+            <a
+              className={`${styles.button} ${styles.buttonGhost}`}
+              href={RESUME_URL}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Download resume"
+            >
+              Download Resume
+            </a>
           </nav>
         </header>
       </section>
@@ -151,6 +163,52 @@ export function HomePage() {
         </div>
       </section>
 
+      <section
+        className={`${styles.panel} ${styles.credentialsPanel}`}
+        aria-label="Resume snapshot"
+      >
+        <div className={styles.credentialsBox}>
+          <p className={styles.projectKicker}>Resume Snapshot</p>
+          <h2>Objective, Skills, Certification, and Education</h2>
+          <div className={styles.credentialsGrid}>
+            <article className={styles.credentialsCard}>
+              <h3>Objective</h3>
+              <p>
+                Full-Stack Developer focused on TypeScript, React, and Node.js,
+                seeking opportunities in Canada to build reliable, user-centred
+                products.
+              </p>
+            </article>
+
+            <article className={styles.credentialsCard}>
+              <h3>Core Skills</h3>
+              <ul>
+                <li>TypeScript, JavaScript, SQL</li>
+                <li>React, React Native, Vite</li>
+                <li>Node.js, Express, REST APIs, Zod</li>
+                <li>PostgreSQL, MySQL, MongoDB Atlas</li>
+              </ul>
+            </article>
+
+            <article className={styles.credentialsCard}>
+              <h3>Certification</h3>
+              <p>
+                <strong>Microservices with Node JS and React</strong> (Udemy) -
+                completed on Apr 20, 2025.
+              </p>
+            </article>
+
+            <article className={styles.credentialsCard}>
+              <h3>Education</h3>
+              <ul>
+                <li>Computer Programming, Georgian College at ILAC (2025)</li>
+                <li>Civil Engineering, Estacio de Sa (2020)</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <footer id="contact" className={`${styles.panel} ${styles.contactPanel}`}>
         <div className={styles.contactContent}>
           <p className={styles.contactKicker}>Open to opportunities in Canada</p>
@@ -166,7 +224,7 @@ export function HomePage() {
             >
               LinkedIn
             </a>
-            <a href="mailto:matheusdaher.dev@gmail.com">Email</a>
+            <a href="mailto:mthsvdaher@gmail.com">Email</a>
           </nav>
         </div>
       </footer>
