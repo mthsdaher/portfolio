@@ -64,3 +64,6 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
+
+# Personal resume file
+Resume_Matheus_Daher.pdf

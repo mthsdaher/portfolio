@@ -1,5 +1,7 @@
 import { useInView } from '../hooks/useInView'
 import styles from './HomePage.module.css'
+import agendamentoUniqueImg from '../assets/agendamento-unique.png'
+import receiptScannerImg from '../assets/receipt-scanner.png'
 
 type Project = {
   name: string
@@ -12,25 +14,9 @@ type Project = {
   imageAlt: string
   ctaLabel: string
   ctaHref: string
-  reverse?: boolean
 }
 
 const projects: Project[] = [
-  {
-    name: 'receipt-scanner',
-    tagline: 'From paper receipts to searchable expense data.',
-    problem:
-      'Manual expense tracking is slow, error-prone, and hard to audit over time.',
-    solution:
-      'An OCR-based flow that extracts receipt fields, validates data, and structures records for reporting.',
-    result:
-      'Reduced repetitive manual entry and improved reliability in day-to-day expense management.',
-    stack: ['TypeScript', 'React', 'Node.js', 'Zod'],
-    imageSrc: '/src/assets/receipt-scanner.png',
-    imageAlt: 'Screenshot of receipt-scanner project interface',
-    ctaLabel: 'View GitHub Repository',
-    ctaHref: 'https://github.com/mthsdaher/receipt-scanner',
-  },
   {
     name: 'agendamento-unique',
     tagline: 'Court, event, and party booking in a single platform.',
@@ -41,17 +27,30 @@ const projects: Project[] = [
     result:
       'Improved booking clarity, reduced scheduling conflicts, and supported smoother operations.',
     stack: ['TypeScript', 'React', 'Node.js', 'Cloud Run'],
-    imageSrc: '/src/assets/agendamento-unique.png',
+    imageSrc: agendamentoUniqueImg,
     imageAlt: 'Screenshot of agendamento-unique scheduling platform',
     ctaLabel: 'View Live Demo',
     ctaHref:
       'https://agendamento-unique-655344779408.northamerica-northeast2.run.app/',
-    reverse: true,
+  },
+  {
+    name: 'receipt-scanner',
+    tagline: 'From paper receipts to searchable expense data.',
+    problem:
+      'Manual expense tracking is slow, error-prone, and hard to audit over time.',
+    solution:
+      'An OCR-based flow that extracts receipt fields, validates data, and structures records for reporting.',
+    result:
+      'Reduced repetitive manual entry and improved reliability in day-to-day expense management.',
+    stack: ['TypeScript', 'React', 'Node.js', 'Zod'],
+    imageSrc: receiptScannerImg,
+    imageAlt: 'Screenshot of receipt-scanner project interface',
+    ctaLabel: 'View GitHub Repository',
+    ctaHref: 'https://github.com/mthsdaher/receipt-scanner',
   },
 ]
 
-const RESUME_URL =
-  'https://drive.google.com/uc?export=download&id=PASTE_YOUR_FILE_ID'
+const RESUME_URL = '/Resume_Matheus_Daher.pdf'
 
 function ProjectSection({ project }: { project: Project }) {
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.3 })
@@ -63,15 +62,7 @@ function ProjectSection({ project }: { project: Project }) {
       className={`${styles.panel} ${styles.projectPanel}`}
       aria-label={`${project.name} project section`}
     >
-      <div
-        className={`${styles.projectLayout} ${project.reverse ? styles.reverse : ''}`}
-      >
-        <figure
-          className={`${styles.projectVisual} ${isInView ? styles.inView : ''}`}
-        >
-          <img src={project.imageSrc} alt={project.imageAlt} loading="lazy" />
-        </figure>
-
+      <div className={styles.projectLayout}>
         <div className={`${styles.projectContent} ${isInView ? styles.inView : ''}`}>
           <p className={styles.projectKicker}>Featured Project</p>
           <h2>{project.name}</h2>
@@ -99,6 +90,12 @@ function ProjectSection({ project }: { project: Project }) {
             {project.ctaLabel}
           </a>
         </div>
+
+        <figure
+          className={`${styles.projectVisual} ${isInView ? styles.inView : ''}`}
+        >
+          <img src={project.imageSrc} alt={project.imageAlt} loading="lazy" />
+        </figure>
       </div>
     </article>
   )
@@ -109,7 +106,7 @@ export function HomePage() {
     <main className={styles.page}>
       <section className={`${styles.panel} ${styles.heroPanel}`}>
         <header className={styles.hero}>
-          <p className={styles.eyebrow}>Software Developer Portfolio</p>
+          <p className={styles.eyebrow}>Matheus Daher - Software Developer Portfolio</p>
           <h1>
             I design and ship production-ready web products that balance
             performance, clarity, and business outcomes.
@@ -119,7 +116,7 @@ export function HomePage() {
             with strong validation, thoughtful UX, and maintainable architecture.
           </p>
           <nav className={styles.heroActions} aria-label="Primary links">
-            <a className={styles.button} href="#receipt-scanner">
+            <a className={styles.button} href="#agendamento-unique">
               View Projects
             </a>
             <a className={`${styles.button} ${styles.buttonGhost}`} href="#contact">
