@@ -1,13 +1,23 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Full-stack portfolio (frontend + backend)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "dev:front": "npm run dev --prefix frontend",
+    "dev:back": "npm run dev --prefix backend",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend"
   },
-  "keywords": [],
+  "keywords": [
+    "portfolio",
+    "react",
+    "node"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }
