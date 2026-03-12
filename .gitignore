@@ -65,5 +65,6 @@ Thumbs.db
 !.vscode/extensions.json
 !.vscode/settings.json
 
-# Personal resume file
+# Personal resume (ignored except in frontend/public for deployment)
 Resume_Matheus_Daher.pdf
+!frontend/public/Resume_Matheus_Daher.pdf
